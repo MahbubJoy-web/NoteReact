@@ -1,20 +1,21 @@
 import React, { useState } from 'react'
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, updateProfile} from "firebase/auth";
 import 'react-toastify/dist/ReactToastify.css';
 import { Bounce, toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
-  // ==============FireBase==============//
-  const auth = getAuth();
-
-
-
   // ---------Common usesate----------------//
   const [Show , setShow] = useState(false)
   const [Data , SetData]= useState({Name: '' , Email: '' , Password: ''}) 
   const[Error, SetError]= useState({NameError: '' ,EmailError: '' , PasswordError: ''})
+  
+  // ==============FireBase==============//
+  const auth = getAuth();
+  // ============navigate usestate=============//
+  const navigate = useNavigate()
 
   // ============ErrorFun==============//
   const handleSubmit = ()=>{
@@ -31,23 +32,40 @@ const Register = () => {
       createUserWithEmailAndPassword(auth, Data.Email, Data.Password)
       .then((userCredential) => {
         const user = userCredential.user;
-        // ----------Success Notify
-        toast.success('Register Success!', {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
+        console.log(user);
+        
+      // =================User Update==============
+      updateProfile(auth.currentUser, {
+        displayName: Data.Name,
+        photoURL: "https://cdn-icons-png.flaticon.com/512/4715/4715330.png"
+      }).then(() => {
+          // ============Email Varification============
+          sendEmailVerification(auth.currentUser)
+          .then(() => {
+            // ------------navigate---------
+            navigate('/login')
+            // ----------Success Notify-------
+            toast.success('Email Verification Send', {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              transition: Bounce,
+              });
           });
+      }).catch((error) => {
+        // An error occurred
+        // ...
+      });
         
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
+        const  errorMessage = error.message;
         // ===========Error notify
         if(errorCode =='auth/email-already-in-use'){
           toast.error('Already exist the email', {
@@ -82,7 +100,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center h-full w-full">
+      <div className="flex justify-center items-center h-[100vh] w-full">
   <div className="grid gap-8">
     <section className="bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl shadow-[-5=px_20px_30px_#2A3335]">
       <div className="border-8 border-transparent rounded-xl bg-white dark:bg-gray-900 shadow-xl p-8 m-2 w-[400px] ">
@@ -117,7 +135,7 @@ const Register = () => {
         </form>
           <button onClick={handleSubmit} className="w-full p-3 mt-6 text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg hover:scale-105 transition transform duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">Register</button>
         <div className="flex flex-col mt-4 text-sm text-center dark:text-gray-300">
-          <p>Already have an account?<button className="text-blue-400 transition hover:underline">Login</button ></p>
+          <p>Already have an account?<Link to={'/login'} className="text-blue-400 transition hover:underline">Login</Link></p>
         </div>
       </div>
     </section>
