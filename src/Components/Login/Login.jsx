@@ -4,6 +4,8 @@ import { IoEye } from "react-icons/io5";
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Bounce, toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { userData } from '../../Slice/userSlice';
 
 const Login = () => {
     // ---------Common usesate----------------//
@@ -14,6 +16,8 @@ const Login = () => {
     const auth = getAuth();
   // --------------Navigate Usestate--------------//
     const navigate = useNavigate()
+    // ==================Redux============
+    const dispatch = useDispatch()
 
 
     // ============ErrorFun==============//
@@ -46,6 +50,9 @@ const Login = () => {
               theme: "light",
               transition: Bounce,
               });
+
+              dispatch(userData(user))
+              localStorage.setItem('JoyStore' ,JSON.stringify(user))
           }
           else{
             toast.error('Email unverified', {
@@ -115,7 +122,7 @@ const Login = () => {
         </form>
           <button onClick={handleSubmit} className="w-full p-3 mt-6 text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg hover:scale-105 transition transform duration-300 shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">Login</button>
         <div className="flex flex-col mt-4 text-sm text-center dark:text-gray-300">
-          <p>I haven't any account<Link to={'/register'} className='className="text-blue-400 transition hover:underline">'>Register</Link> </p>
+          <p>I haven't any account <Link to={'/register'} className=' text-blue-400 transition hover:underline '> Register</Link> </p>
         </div>
       </div>
     </section>

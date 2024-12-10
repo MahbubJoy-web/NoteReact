@@ -5,7 +5,9 @@ import app from './firebase.config'
 import { ToastContainer } from 'react-toastify'
 import Login from './Components/Login/Login'
 import LayoutOne from './Layout/LayoutOne'
-import { Home } from './Components/Home/Home'
+import { Home } from './Components/Pages/Home'
+import BinNotes from './Components/Pages/BinNotes'
+import PinNote from './Components/Pages/pinNote'
 
 function App() {
 
@@ -16,6 +18,8 @@ function App() {
         <Route path='/login' element={<Login/>} />
         < Route path='/' element={<LayoutOne/>} >
         <Route index element={<Home/>}/>
+        <Route path='/pinNotes' element={<PinNote/>}/>
+        <Route path='/binNote' element={<BinNotes/>}/>
         </Route>
       </Route>
     )
