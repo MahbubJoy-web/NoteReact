@@ -37,7 +37,7 @@ const SideNav = () => {
                 <li className=' flex flex-col gap-3'>
                 <NavLink
                     to="/"
-                    className={({ isActive }) => isActive ? " w-full py-4 inline-block text-black font-medium text-xl pl-3 bg-[#E195AB] pl-9" : " w-full py-4 inline-block text-black font-medium text-xl pl-3  text-black dark:text-gray-200"
+                    className={({ isActive }) => isActive ? "w-full py-4 inline-block text-black font-medium text-xl pl-3 bg-[#FBB4A5] dark:bg-gray-200 pl-9 duration-[.3s]" : " w-full py-4 inline-block text-black font-medium text-xl pl-3  text-black dark:text-gray-200 duration-[.3s]"
                     }
                     >
                     <div className=' flex items-center gap-4'>
@@ -46,7 +46,7 @@ const SideNav = () => {
                 </NavLink>
                 <NavLink
                     to="/pinNotes"
-                    className={({ isActive }) => isActive ? " w-full py-4 inline-block text-black font-medium text-xl pl-3 bg-[#E195AB] pl-9" : " w-full py-4 inline-block text-black font-medium text-xl pl-3  text-black dark:text-gray-200"
+                    className={({ isActive }) => isActive ? " w-full py-4 inline-block text-black font-medium text-xl pl-3 bg-[#FBB4A5] dark:bg-gray-200  pl-9 duration-[.3s]" : " w-full py-4 inline-block text-black font-medium text-xl pl-3  text-black dark:text-gray-200 duration-[.3s]"
                     }
                     >
                     <div className=' flex items-center gap-4'>
@@ -55,7 +55,7 @@ const SideNav = () => {
                 </NavLink>
                 <NavLink
                     to="/binNote"
-                    className={({ isActive }) => isActive ? " w-full py-4 inline-block text-black font-medium text-xl pl-3 bg-[#E195AB] pl-9 dark:text-gray-200" : " w-full py-4 inline-block  text-black font-medium text-xl pl-3  text-black dark:text-gray-200"
+                    className={({ isActive }) => isActive ? " w-full py-4 inline-block text-black font-medium text-xl pl-3 bg-[#FBB4A5] dark:bg-gray-200  pl-9  duration-[.3s]" : " w-full py-4 inline-block  text-black font-medium text-xl pl-3  text-black dark:text-gray-200 duration-[.3s]"
                     }
                     >
                     <div className=' flex items-center gap-4'>
@@ -74,7 +74,7 @@ const SideNav = () => {
           </button>
         ) : (
           <button
-            className="py-1 px-3 bg-[#E195AB] text-white rounded-sm text-xl "
+            className="py-1 px-3 bg-gray-300 dark:text-black font-medium text-white rounded-sm text-xl "
             onClick={handelMode}
           >
             Light

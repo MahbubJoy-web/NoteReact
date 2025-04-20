@@ -13,7 +13,7 @@ const Register = () => {
   const[Error, SetError]= useState({NameError: '' ,EmailError: '' , PasswordError: ''})
   
   // ==============FireBase==============//
-  const auth = getAuth();
+  const auth = getAuth(); 
   // ============navigate usestate=============//
   const navigate = useNavigate()
 
@@ -32,8 +32,6 @@ const Register = () => {
       createUserWithEmailAndPassword(auth, Data.Email, Data.Password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
-        
       // =================User Update==============
       updateProfile(auth.currentUser, {
         displayName: Data.Name,
