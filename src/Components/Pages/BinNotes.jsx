@@ -39,22 +39,13 @@ const handleRecover = (kimpolor)=>{
 }
 
 const Alldelete = ()=>{
-  remove(ref(db, 'binNotes/'))
-}
-
-const AllRecover = ()=>{
   onValue(ref(db, 'binNotes/'), (snapshot) => {
     snapshot.forEach((item)=>{
-      set(push(ref(db, 'AllNotes/')), {
-        NotesTitle:item.val().NotesTitle ,
-        NotesDis:item.val().NotesDis,
-        cardColos : item.val().cardColos,
-        UserID : userID.uid, 
-        pin:item.val().pin,
-      });
+      if( item.val().UserID == userID.uid){
+        remove(ref(db, 'binNotes/' + item.key))
+      }
     })
   })
-  remove(ref(db, 'binNotes/'))
 }
 
 // ==========realTime Database===========//
@@ -79,14 +70,13 @@ useEffect(() =>{
      <h2 className='text-3xl font-semibold dark:text-white dark:duration-[2s] duration-[2s]'>All Trash</h2>
       <p className='text-gray-500 dark:text-white'>All your deleted notes will be here</p>
       <div className="flex justify-end gap-2 mr-5">
-        <button className='w-[90px] bg-green-400 rounded-[40px] text-[16px] font-medium dark:text-white dark:border'onClick={AllRecover} >Restore All</button>
         <button className='w-[90px] bg-red-400 rounded-[40px] text-[16px] font-medium dark:text-white dark:border' onClick={Alldelete}>Delete All</button>
       </div>
       <div className="main">
         <div className=" mt-[30px]  flex gap-3 flex-wrap gap-y-8">
                 {
                   delData.map((item) =>(
-                  <div key={item.key} style={{background : item.cardColos}} className='w-[200px] h-[200px] relative border-solid border-[4px] border-gray-200 dark:border-white text-gray-400 p-3'>
+                  <div key={item.key} style={{background : item.cardColos}} className='w-[200px] h-[200px] relative border-solid border-[4px] border-gray-200 dark:border-white text-gray-400 p-3 overflow-hidden'>
                     <div className="cardBar absolute top-3 right-[10px]">
                     
                     <BiDotsVertical className='w-[20px] h-[20px] cursor-pointer' onClick={()=> {setShowbar(!showBar), SetUniqueCard(item)}} /> 

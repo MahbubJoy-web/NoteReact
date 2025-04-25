@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getDatabase, ref, onValue, update, remove, set, push } from "firebase/database";
 import { useSelector } from 'react-redux';
 import { BiDotsVertical } from "react-icons/bi";
+import PopUp from '../PopUp/PopUp';
 
 const Singlecard = () => {
 // ============redux Data============//
@@ -11,6 +12,8 @@ const userID = useSelector((state)=> state.JoyStore.value)
 const [delData , takeData] = useState([])
 const [showBar , setShowbar] = useState(true)
 const [ UniqueCard , SetUniqueCard] = useState('')
+const [showpop, SetShowpop] = useState(false)
+const [ EditData , SetEditData] = useState('')
 
 // ================Function===============//
 const db = getDatabase();
@@ -55,14 +58,14 @@ useEffect(() =>{
       <div className=" mt-[30px]  flex gap-3 flex-wrap gap-y-8">
         {
           delData.map((item) =>(
-          <div key={item.key} style={{background : item.cardColos}} className='w-[200px] h-[200px] relative border-solid border-[4px] border-gray-200 dark:border-white text-gray-400 p-3'>
+          <div key={item.key} style={{background : item.cardColos}} className='w-[200px] h-[200px] relative border-solid border-[4px] border-gray-200 dark:border-white text-gray-500 p-3 overflow-hidden'>
             <div className="cardBar absolute top-3 right-[10px]">
             <BiDotsVertical className='w-[20px] h-[20px] cursor-pointer' onClick={()=> {setShowbar(!showBar), SetUniqueCard(item)}} /> 
               {
                 UniqueCard == item && showBar && 
                 (
                   <div className='p-2 bg-gray-100 absolute top-full right-0'>
-                    <button>Edit</button>
+                    <button onClick={()=>(SetShowpop(true),SetEditData(item))}>Edit</button>
                     <hr />
                     <button onClick={()=>handlePin(item)}>Pin</button>
                     <hr />
@@ -72,12 +75,13 @@ useEffect(() =>{
               }
 
             </div>
-            <h2 className='text-2xl w-[100px]'>{item.NotesTitle}</h2>
-            <p className='text-[18px] w-[100px]'>{item.NotesDis}</p>
+            <h2 className='text-2xl text-black w-[100px]'>{item.NotesTitle}</h2>
+            <p className='text-[18px] w-[100px] text-black break-words overflow-hidden'>{item.NotesDis}</p>
           </div>
           ))
         }
       </div>
+      <PopUp  showValue={showpop} popCross={()=>SetShowpop(false)} EditDatavalue={EditData} />
     </>
   )
 }
