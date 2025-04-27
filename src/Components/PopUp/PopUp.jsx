@@ -88,9 +88,10 @@ const PopUp = ({showValue , popCross, EditDatavalue}) => {
             <div className="allColos flex gap-1 items-center relative">
               <IoColorFill onClick={()=>setColor(!showColor)}  className=' w-[40px] h-[30px] text-[#F26B0F]'/>
               <div className={`flex gap-2 items-center absolute top-[8px] ${!showColor? 'left-[-150px]' : 'left-[50px]' } transition-all  duration-[.5s]`}>
-                <button onClick={()=> setColors('#FB4141')} className="w-[20px] h-[20px] bg-[#FB4141] rounded-full"></button>
-                <button onClick={()=>setColors('#4335A7')} className="w-[20px] h-[20px] bg-[#4335A7] rounded-full"></button>
-                <button onClick={()=>setColors('#7E5CAD')} className="w-[20px] h-[20px] bg-[#7E5CAD] rounded-full"></button>
+                <button onClick={()=> setColors('#FED2E2')} className="w-[20px] h-[20px] bg-[#FED2E2] rounded-full focus:border-2 focus:border-black"></button>
+                <button onClick={()=>setColors('#FFDF88')} className="w-[20px] h-[20px] bg-[#FFDF88] rounded-full focus:border-2 focus:border-black"></button>
+                <button onClick={()=>setColors('#37B7C3')} className="w-[20px] h-[20px] bg-[#37B7C3] rounded-full focus:border-2 focus:border-black"></button>
+            
                 <label htmlFor="color">
                 <IoMdColorPalette  className='w-[30px] h-[25px] text-[#E195AB]'/>
                 </label>

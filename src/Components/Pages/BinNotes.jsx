@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { BiDotsVertical } from "react-icons/bi";
 import { IoTrashBin } from "react-icons/io5";
 import { FaRecycle } from "react-icons/fa";
+import { BsThreeDotsVertical } from 'react-icons/bs';
 
 
 const BinNotes = () => {
@@ -38,15 +39,18 @@ const handleRecover = (kimpolor)=>{
   remove(ref(db, 'binNotes/' + kimpolor.key))
 }
 
-const Alldelete = ()=>{
+const Alldelete = () => {
   onValue(ref(db, 'binNotes/'), (snapshot) => {
-    snapshot.forEach((item)=>{
-      if( item.val().UserID == userID.uid){
-        remove(ref(db, 'binNotes/' + item.key))
+    snapshot.forEach((item) => {
+      if (item.val().UserID === userID.uid) {
+        remove(ref(db, 'binNotes/' + item.key));
       }
-    })
-  })
-}
+    });
+    takeData([]); 
+  }, {
+    onlyOnce: true 
+  });
+};
 
 // ==========realTime Database===========//
 useEffect(() =>{
@@ -79,7 +83,7 @@ useEffect(() =>{
                   <div key={item.key} style={{background : item.cardColos}} className='w-[200px] h-[200px] relative border-solid border-[4px] border-gray-200 dark:border-white text-gray-400 p-3 overflow-hidden'>
                     <div className="cardBar absolute top-3 right-[10px]">
                     
-                    <BiDotsVertical className='w-[20px] h-[20px] cursor-pointer' onClick={()=> {setShowbar(!showBar), SetUniqueCard(item)}} /> 
+                    <BsThreeDotsVertical className='w-[20px] h-[20px] cursor-pointer text-black' onClick={()=> {setShowbar(!showBar), SetUniqueCard(item)}} /> 
                       {
                         UniqueCard == item && showBar && 
                         (
@@ -90,11 +94,10 @@ useEffect(() =>{
                           </div>
                         )
                       }
-        
-                    </div>
-                    <h2 className='text-2xl w-[100px]'>{item.NotesTitle}</h2>
-                    <p className='text-[18px] w-[100px]'>{item.NotesDis}</p>
-                  </div>
+                      </div>
+                        <h2 className='mt-3 text-2xl font-semibold text-black w-[150px] break-words'>{item.NotesTitle}</h2>
+                        <p className='text-[16px] w-[150px] text-black break-words overflow-hidden'>{item.NotesDis}</p>
+                      </div>
                   ))
                 }
               </div>

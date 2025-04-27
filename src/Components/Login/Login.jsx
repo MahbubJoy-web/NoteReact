@@ -89,8 +89,12 @@ const Login = () => {
         });
       }
     }
+    const handleEnter = (e) => {
+      if(e.key ==='Enter'){
+        handleSubmit()
+      }
 
-
+    }
   return (
     <>
       <div className="flex justify-center items-center h-[100vh] w-full">
@@ -102,13 +106,13 @@ const Login = () => {
           {/* ===============User Email */}
           <div>
             <label htmlFor='Email' className="block text-lg dark:text-gray-300">Email:</label>
-            <input onChange={(e)=>{SetData((prev)=>({...prev , Email:e.target.value})) , SetError((prev)=>({...prev,EmailError:''}))}} className="border py-2 px-3 shadow-md dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full outline-none focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300" id='Email' type="email" placeholder="Email"/>
+            <input onChange={(e)=>{SetData((prev)=>({...prev , Email:e.target.value})) , SetError((prev)=>({...prev,EmailError:''}))}} onKeyDown={handleEnter} className="border py-2 px-3 shadow-md dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full outline-none focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300" id='Email' type="email" placeholder="Email"/>
             <p className='text-[12px] text-[#FF2929] font-medium'>{Error.EmailError}</p>
           </div>
           {/* ===============User Pass */}
           <div className='relative'>
             <label htmlFor='Pass' className="block  text-lg dark:text-gray-300">Password:</label >
-            <input id='Pass' onChange={(e)=>{SetData((prev)=>({...prev , Password:e.target.value})), SetError((prev)=>({...prev,PasswordError:''}))}}  className="border  py-2 px-3 shadow-md dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full outline-none focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300" type={ Show? "text" : "password" } placeholder="Password"/>
+            <input id='Pass' onChange={(e)=>{SetData((prev)=>({...prev , Password:e.target.value})), SetError((prev)=>({...prev,PasswordError:''}))}} onKeyDown={handleEnter} className="border  py-2 px-3 shadow-md dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full outline-none focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300" type={ Show? "text" : "password" } placeholder="Password"/>
             <p className='text-[12px] text-[#FF2929] font-medium'>{Error.PasswordError}</p>
             {
               Show?
