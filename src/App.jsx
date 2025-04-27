@@ -7,7 +7,8 @@ import Login from './Components/Login/Login'
 import LayoutOne from './Layout/LayoutOne'
 import { Home } from './Components/Pages/Home'
 import BinNotes from './Components/Pages/BinNotes'
-import PinNote from './Components/Pages/pinNote'
+import PinNote from './Components/Pages/PinNote'
+
 
 function App() {
 
