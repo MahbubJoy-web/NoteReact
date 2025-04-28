@@ -68,21 +68,34 @@ const PopUp = ({showValue , popCross, EditDatavalue}) => {
       setColors(EditDatavalue.cardColos)
     }
   }, [EditDatavalue])
+
+  useEffect(() => {
+    if (showValue) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    }
+  }, [showValue]);
+  
   
   return (
     <>
-    <div className={`${showValue? 'w-full' : 'w-0'} transition-all duration-[.5s] z-[999] h-screen bg-[#00000090] fixed left-0 top-0 flex justify-center items-center`}>
+    <div className={`${showValue? 'w-full' : 'w-0'} transition-all duration-[.5s] z-[999]  h-screen bg-[#00000090]  fixed left-0 top-0 flex justify-center items-center`}>
         <button onClick={popCross} className=' top-10 right-10 absolute '>
           <RxCross2 className=' w-[30px] h-[30px] text-gray-200'/>
         </button>
         
         {/* ==================Input fild=============== */}
-        <div style={{ background:color}} className={`MInput w-[800px] rounded-lg overflow-hidden px-6 py-7 ${showValue? 'block' : 'hidden'}`}>
+        <div style={{ background:color}} className={`MInput mx-10 sm:w-[600px] md:w-[800px] rounded-lg overflow-hidden px-6 py-7 ${showValue? 'block' : 'hidden'}`}>
           <p className='text-[14px] text-[#DA498D] text-center font-bold'>{toddoData.ToddoError}</p>
           <label htmlFor="tiile" className='text-2xl ml-2 font-medium'>Title</label>
           <input value={toddoData.todoTittle} onChange={(e)=>SetTodaData((prev) => ({...prev, todoTittle:e.target.value}))} id='tiile' type="text" className=' font-medium mt-4 mb-5 w-full h-[40px] bg-[#ECEBDE] text-[#685752] px-4 text-xl outline-none  rounded-[5px] shadow-[15px_12px_10px_rgb(0,0,0,0.12)]' placeholder='Tittle'/>
           <label htmlFor="note" className=' font-medium text-2xl ml-2 '>Notes</label>
-          <textarea value={toddoData.toddoNote} onChange={(e)=>SetTodaData((prev) =>({...prev, toddoNote:e.target.value}))} id='note' type="text" className='font-medium w-full !h-[450px] bg-[#ECEBDE] text-[#685752] text-xl outline-none mt-2 rounded-[5px] p-3 shadow-[15px_12px_10px_rgb(0,0,0,0.12)]' placeholder='Note.........'></textarea>
+          <textarea value={toddoData.toddoNote} onChange={(e)=>SetTodaData((prev) =>({...prev, toddoNote:e.target.value}))} id='note' type="text" className='font-medium w-full sm:!h-[450px] h-[200px] bg-[#ECEBDE] text-[#685752] text-xl outline-none mt-2 rounded-[5px] p-3 shadow-[15px_12px_10px_rgb(0,0,0,0.12)]' placeholder='Note.........'></textarea>
           {/* =============All colors========== */}
           <div className=" w-full mt-4 flex justify-between">
             <div className="allColos flex gap-1 items-center relative">
