@@ -38,12 +38,12 @@ const Register = () => {
         photoURL: "https://cdn-icons-png.flaticon.com/512/4715/4715330.png"
       }).then(() => {
           // ============Email Varification============
-          sendEmailVerification(auth.currentUser)
-          .then(() => {
+          // sendEmailVerification(auth.currentUser)
+          // .then(() => {
             // ------------navigate---------
             navigate('/login')
             // ----------Success Notify-------
-            toast.success('Email Verification Send', {
+            toast.success('Register Seccessfull', {
               position: "top-right",
               autoClose: 5000,
               hideProgressBar: false,
@@ -54,7 +54,7 @@ const Register = () => {
               theme: "light",
               transition: Bounce,
               });
-          });
+          // });
       }).catch((error) => {
         // An error occurred
         // ...

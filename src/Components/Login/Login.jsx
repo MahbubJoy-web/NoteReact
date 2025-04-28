@@ -35,38 +35,38 @@ const Login = () => {
         signInWithEmailAndPassword(auth, Data.Email, Data.Password)
         .then((userCredential) => {
           const user = userCredential.user;
-          if(user.emailVerified==true){
-            // --------------Navigate to Home-----------
+          // if(user.emailVerified==true){
+          //   // --------------Navigate to Home-----------
             navigate('/')
-            // -----------success Notify---------
-            toast.success('Login Success', {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-              transition: Bounce,
-              });
+          //   // -----------success Notify---------
+          //   toast.success('Login Success', {
+          //     position: "top-right",
+          //     autoClose: 5000,
+          //     hideProgressBar: false,
+          //     closeOnClick: true,
+          //     pauseOnHover: true,
+          //     draggable: true,
+          //     progress: undefined,
+          //     theme: "light",
+          //     transition: Bounce,
+          //     });
 
               dispatch(userData(user))
               localStorage.setItem('JoyStore' ,JSON.stringify(user))
-          }
-          else{
-            toast.error('Email unverified', {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-              transition: Bounce,
-              });
-          }
+          // }
+          // else{
+          //   toast.error('Email unverified', {
+          //     position: "top-right",
+          //     autoClose: 5000,
+          //     hideProgressBar: false,
+          //     closeOnClick: true,
+          //     pauseOnHover: true,
+          //     draggable: true,
+          //     progress: undefined,
+          //     theme: "light",
+          //     transition: Bounce,
+          //     });
+          // }
           // ...
         })
         .catch((error) => {
