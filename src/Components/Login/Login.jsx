@@ -100,7 +100,7 @@ const Login = () => {
     <div className="flex justify-center items-center min-h-screen w-full sm:p-0 p-5" style={{backgroundImage: `url('https://img.freepik.com/free-vector/geometric-gradient-futuristic-background_23-2149116406.jpg?t=st=1745871964~exp=1745875564~hmac=2da3e90f480bf863701b33808bda3194bd8ee07c972c1788dfd7cfd7e661093d&w=996')`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
       <div className="grid gap-8">
         <section className="bg-gradient-to-r from-red-500 to-blue-500 rounded-3xl shadow-lg">
-          <div className="border-8 border-transparent rounded-xl bg-transparent dark:bg-gray-900 shadow-xl p-8 m-2 w-[290px] sm:w-[400px] mx-auto">
+          <div className="border-8 border-transparent rounded-xl bg-transparent shadow-xl p-8 m-2 w-[290px] sm:w-[400px] mx-auto">
             <h1 className="sm:text-5xl text-3xl font-bold text-center cursor-default bg-transparent text-white mb-10">Login</h1>
             <form className="flex flex-col gap-4">
               {/* Email Input */}
@@ -109,7 +109,7 @@ const Login = () => {
                 <input 
                   onChange={(e) => { SetData((prev)=>({...prev, Email:e.target.value})) ; SetError((prev)=>({...prev, EmailError:''})) }}
                   onKeyDown={handleEnter}
-                  className="border py-2 px-3 shadow-md dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full outline-none focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300" 
+                  className="border py-2 px-3 shadow-md border-gray-300 rounded-lg w-full outline-none focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300" 
                   id='Email' 
                   type="email" 
                   placeholder="Email" 
@@ -124,7 +124,7 @@ const Login = () => {
                   id='Pass' 
                   onChange={(e)=>{ SetData((prev)=>({...prev, Password:e.target.value})) ; SetError((prev)=>({...prev, PasswordError:''})) }}
                   onKeyDown={handleEnter}
-                  className="border py-2 px-3 shadow-md dark:bg-indigo-700 dark:text-gray-300 dark:border-gray-700 border-gray-300 rounded-lg w-full outline-none focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300" 
+                  className="border py-2 px-3 shadow-md   border-gray-300 rounded-lg w-full outline-none focus:ring-2 focus:ring-blue-500 transition transform hover:scale-105 duration-300" 
                   type={ Show ? "text" : "password" } 
                   placeholder="Password"
                 />
@@ -145,7 +145,7 @@ const Login = () => {
               Login
             </button>
 
-            <div className="flex flex-col mt-4 text-sm text-center dark:text-gray-300">
+            <div className="flex flex-col mt-4 text-sm text-center">
               <p>Don't have an account? <Link to={'/register'} className='text-white hover:underline'>Register</Link></p>
             </div>
 

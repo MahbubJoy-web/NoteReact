@@ -107,8 +107,8 @@ const Register = () => {
     <div className="flex justify-center items-center min-h-screen w-full sm:p-0 p-5" style={{backgroundImage: `url('https://img.freepik.com/free-vector/geometric-gradient-futuristic-background_23-2149116406.jpg?t=st=1745871964~exp=1745875564~hmac=2da3e90f480bf863701b33808bda3194bd8ee07c972c1788dfd7cfd7e661093d&w=996')`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
     <div className="grid gap-8">
     <section className="bg-gradient-to-r from-red-500 to-blue-500 rounded-3xl shadow-[-5=px_20px_30px_#2A3335]">
-      <div className="border-8 border-transparent rounded-xl bg-transparent dark:bg-gray-900 shadow-xl p-8 m-2 w-[400px] w-[290px] sm:w-[400px] mx-auto">
-        <h1 className="text-5xl font-bold text-center cursor-default text-white text-gray-900 mb-[40px]">Sign Up</h1>
+    <div className="border-8 border-transparent rounded-xl bg-transparent shadow-xl p-8 m-2 w-[290px] sm:w-[400px] mx-auto">
+        <h1 className="text-5xl text-3xl font-bold text-center cursor-default text-white text-gray-900 mb-[40px]">Sign Up</h1>
         <form className="flex flex-col gap-4">
           {/* =============User Name */}
           <div>
