@@ -55,7 +55,7 @@ useEffect(() =>{
       <div className=" mt-[30px]  flex gap-3 flex-wrap gap-y-8">
         {
           delData.map((item) =>(
-          <div key={item.key} style={{background : item.cardColos}} className='w-[200px] h-[200px] relative border-solid border-[4px] border-gray-200 text-gray-400 p-3'>
+          <div key={item.key} style={{background : item.cardColos}} className='sm:w-[200px] sm:h-[200px] w-[150px] h-[150px] relative border-solid border-[4px] overflow-hidden border-gray-200 text-gray-400 p-3'>
             <div className="cardBar absolute top-3 right-[10px]">
             <BsThreeDotsVertical className='w-[20px] h-[20px] cursor-pointer text-black' onClick={()=> {setShowbar(!showBar), SetUniqueCard(item)}} />
               {
@@ -72,8 +72,8 @@ useEffect(() =>{
               }
 
           </div>
-            <h2 className='mt-3 text-2xl font-semibold text-black w-[150px] break-words'>{item.NotesTitle}</h2>
-            <p className='text-[16px] w-[150px] text-black break-words overflow-hidden'>{item.NotesDis}</p>
+            <h2 className='mt-4 sm:text-2xl font-semibold text-black sm:w-[150px] break-words'>{item.NotesTitle}</h2>
+            <p className='sm:text-[16px] text-[12px] sm:w-[150px] w-[120px] sm:h-[150px] text-black break-words overflow-hidden'>{item.NotesDis}</p>
           </div>
           ))
         }

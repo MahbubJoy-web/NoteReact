@@ -71,16 +71,16 @@ useEffect(() =>{
   return (
   <>
     <div className="w-full p-2 dark:bg-[#000]">
-     <h2 className='text-3xl font-semibold dark:text-white dark:duration-[2s] duration-[2s]'>All Trash</h2>
-      <p className='text-gray-500 dark:text-white'>All your deleted notes will be here</p>
+     <h2 className='sm:text-3xl text-2xl font-semibold dark:text-white dark:duration-[2s] duration-[2s]'>All Trash</h2>
+      <p className='text-gray-500 sm:text-xl text-[12px] dark:text-white'>All your deleted notes will be here</p>
       <div className="flex justify-end gap-2 mr-5">
-        <button className='w-[90px] bg-red-400 rounded-[40px] text-[16px] font-medium dark:text-white dark:border' onClick={Alldelete}>Delete All</button>
+        <button className='mt-2 sm:w-[90px] w-[65px] bg-red-400 rounded-[40px] sm:text-[16px] text-[12px] font-medium dark:text-white dark:border' onClick={Alldelete}>Delete All</button>
       </div>
       <div className="main">
         <div className=" mt-[30px]  flex gap-3 flex-wrap gap-y-8">
                 {
                   delData.map((item) =>(
-                  <div key={item.key} style={{background : item.cardColos}} className='w-[200px] h-[200px] relative border-solid border-[4px] border-gray-200 dark:border-white text-gray-400 p-3 overflow-hidden'>
+                  <div key={item.key} style={{background : item.cardColos}} className='sm:w-[200px] sm:h-[200px] w-[150px] h-[150px] relative border-solid border-[4px] border-gray-200 dark:border-white text-gray-400 p-3 overflow-hidden'>
                     <div className="cardBar absolute top-3 right-[10px]">
                     
                     <BsThreeDotsVertical className='w-[20px] h-[20px] cursor-pointer text-black' onClick={()=> {setShowbar(!showBar), SetUniqueCard(item)}} /> 
@@ -95,8 +95,8 @@ useEffect(() =>{
                         )
                       }
                       </div>
-                        <h2 className='mt-3 text-2xl font-semibold text-black w-[150px] break-words'>{item.NotesTitle}</h2>
-                        <p className='text-[16px] w-[150px] text-black break-words overflow-hidden'>{item.NotesDis}</p>
+                        <h2 className='mt-4 sm:text-2xl font-semibold text-black sm:w-[150px] break-words'>{item.NotesTitle}</h2>
+                        <p className='sm:text-[16px] text-[12px] sm:w-[150px] w-[120px] sm:h-[150px] text-black break-words overflow-hidden'>{item.NotesDis}</p>
                       </div>
                   ))
                 }

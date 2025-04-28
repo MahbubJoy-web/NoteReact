@@ -65,7 +65,7 @@ console.log(EditData);
           <div key={item.key} 
               style={{background : item.cardColos}}
               onDoubleClick={()=>(setVisible(true), SetEditData(item))}
-              className='w-[200px] h-[200px] relative border-solid border-[4px] border-gray-200 dark:border-white text-gray-500 p-3 overflow-hidden dark:bg-black'>
+              className='sm:w-[200px] sm:h-[200px] w-[150px] h-[150px] relative border-solid border-[4px] border-gray-200 dark:border-white text-gray-500 p-3 overflow-hidden dark:bg-black'>
             <div className="cardBar absolute top-3 right-[10px]">
             <BsThreeDotsVertical className='w-[20px] h-[20px] cursor-pointer text-black' onClick={()=> {setShowbar(!showBar), SetUniqueCard(item)}} /> 
               {
@@ -81,9 +81,9 @@ console.log(EditData);
                 )
               }
             </div>
-              <h2 className='mt-3 text-2xl font-semibold text-black w-[150px] break-words'>{item.NotesTitle}</h2>
-              <p className='text-[16px] w-[150px]  text-black break-words overflow-hidden'>{item.NotesDis}</p>
-            </div>
+            <h2 className='mt-4 sm:text-2xl font-semibold text-black sm:w-[150px] break-words'>{item.NotesTitle}</h2>
+            <p className='sm:text-[16px] text-[12px] sm:w-[150px] w-[120px] sm:h-[150px] text-black break-words overflow-hidden'>{item.NotesDis}</p>
+          </div>
           ))
         }
       </div>
