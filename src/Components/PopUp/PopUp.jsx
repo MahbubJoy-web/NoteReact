@@ -95,7 +95,7 @@ const PopUp = ({showValue , popCross, EditDatavalue}) => {
           <label htmlFor="tiile" className='text-2xl ml-2 font-medium'>Title</label>
           <input value={toddoData.todoTittle} onChange={(e)=>SetTodaData((prev) => ({...prev, todoTittle:e.target.value}))} id='tiile' type="text" className=' font-medium mt-4 mb-5 w-full h-[40px] bg-[#ECEBDE] text-[#685752] px-4 text-xl outline-none  rounded-[5px] shadow-[15px_12px_10px_rgb(0,0,0,0.12)]' placeholder='Tittle'/>
           <label htmlFor="note" className=' font-medium text-2xl ml-2 '>Notes</label>
-          <textarea value={toddoData.toddoNote} onChange={(e)=>SetTodaData((prev) =>({...prev, toddoNote:e.target.value}))} id='note' type="text" className='font-medium w-full sm:!h-[450px] h-[200px] bg-[#ECEBDE] text-[#685752] text-xl outline-none mt-2 rounded-[5px] p-3 shadow-[15px_12px_10px_rgb(0,0,0,0.12)]' placeholder='Note.........'></textarea>
+          <textarea value={toddoData.toddoNote} onChange={(e)=>SetTodaData((prev) =>({...prev, toddoNote:e.target.value}))} id='note' type="text" className='font-medium w-full lg:!h-[450px] h-[200px] bg-[#ECEBDE] text-[#685752] text-xl outline-none mt-2 rounded-[5px] p-3 shadow-[15px_12px_10px_rgb(0,0,0,0.12)]' placeholder='Note.........'></textarea>
           {/* =============All colors========== */}
           <div className=" w-full mt-4 flex justify-between">
             <div className="allColos flex gap-1 items-center relative">

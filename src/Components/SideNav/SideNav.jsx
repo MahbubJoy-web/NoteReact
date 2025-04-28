@@ -30,7 +30,7 @@ const SideNav = () => {
   };
   return (
     <>
-    <nav className='w-[220px] h-screen bg-[#ECEBDE] dark:bg-black dark:bg-black dark:border-r-2 dark:border-[#fff]'>
+    <nav className='w-[220px] min-h-screen bg-[#ECEBDE] dark:bg-black dark:border-r-2 dark:border-[#fff]'>
         <h1 className='sm:text-3xl text-2xl font-reguler p-3 mb-[60px] dark:text-gray-200'>All Notes</h1>
         <div className="bars">
             <ul>

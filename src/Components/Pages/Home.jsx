@@ -12,7 +12,6 @@ export const Home = () => {
        <PinNotes/>
        <h2 className='text-2xl font-semibold w-full text-gray-400 dark:text-white mt-9 border-b pb-2'>All Notes</h2>
         <Singlecard/>
-        
     </div>
     </>
   )

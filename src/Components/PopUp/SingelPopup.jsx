@@ -22,7 +22,18 @@ const db = getDatabase();
     }
   }, [ShowData])
 
-console.log(toddoData.toddoNote);
+    useEffect(() => {
+      if (ShowData) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+      
+      return () => {
+        document.body.style.overflow = 'auto';
+      }
+    }, [ShowData]);
+
 
   return (
        <>
@@ -34,9 +45,9 @@ console.log(toddoData.toddoNote);
            {/* ==================Input fild=============== */}
            <div  className={`MInput w-[800px] rounded-lg overflow-hidden px-6 py-7 ${Visiable? 'block' : 'hidden'}`}>
              <label htmlFor="tiile" className='text-2xl ml-2 font-medium text-white'>Title</label>
-             <input value={toddoData.todoTittle} id='tiile' type="text" className=' font-medium mt-4 mb-5 w-full h-[50px] bg-[#ECEBDE] text-[#685752] px-4 text-xl outline-none  rounded-[5px] shadow-[21px_27px_11px_rgb(0,0,0,0.12)]' />
+             <input value={toddoData.todoTittle} readOnly id='tiile' type="text" className=' font-medium mt-4 mb-5 w-full h-[50px] bg-[#ECEBDE] text-[#685752] px-4 text-xl outline-none  rounded-[5px] shadow-[21px_27px_11px_rgb(0,0,0,0.12)]' />
              <label htmlFor="note" className=' font-medium text-2xl ml-2 text-white'>Notes</label>
-             <textarea value={toddoData.toddoNote} id='note' type="text" className='font-medium w-full !h-[450px] bg-[#ECEBDE] text-[#685752] text-xl outline-none mt-2 rounded-[5px] p-3 shadow-[21px_27px_11px_rgb(0,0,0,0.12)]'></textarea>
+             <textarea value={toddoData.toddoNote} readOnly id='note' type="text" className='font-medium w-full lg:!h-[450px] h-[200px] bg-[#ECEBDE] text-[#685752] text-xl outline-none mt-2 rounded-[5px] p-3 shadow-[21px_27px_11px_rgb(0,0,0,0.12)]'></textarea>
            </div>
        </div>
        </>
